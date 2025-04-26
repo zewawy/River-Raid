@@ -7,6 +7,8 @@
 #include "Helicopter.h"
 #include "Bullet.h"
 #include "plane.h"
+#include "Background.h"
+#include "StatusBar.h"
 
 class Game
 {
@@ -18,6 +20,8 @@ private:
 	std::vector<Helicopter*> helicopters;
 	std::vector<Bullet*> bullet;
         Plane* plane;
+	Background* bg;
+	StatusBar* status;
 
 public:
 	Game();
