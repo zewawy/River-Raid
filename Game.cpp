@@ -4,6 +4,7 @@
 #include"Bullet.h"
 #include"jet.h"
 #include"Helicopter.h"
+#include "plane.h"
 
 Game::Game()
 {
@@ -17,7 +18,7 @@ Game::Game()
 
 
 	//4- Create the Plane
-	//TODO: Add code to create and draw the Plane
+	plane = new Plane(400, 600, 10);  // coordinates are an example we need to change according to the window size ya kevin
 
 	//5- Create the Bullet
 	//TODO: Add code to create and draw the Bullet
@@ -158,6 +159,10 @@ void Game::drawAll()const {
 
 	for (auto b : bullet)                  
 		b->draw();
+	
+	plane->move(*pWind);
+	
+	plane->draw(*pWind);
 }
 
 
