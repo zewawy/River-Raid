@@ -65,6 +65,6 @@ void Plane::fireBullet() {
     spawn.x = x + 40; // center
     spawn.y = y;      // top of plane
 
-    Bullet* newBullet = new Bullet(nullptr, spawn);  // no pointer for now but it should be Game* so add it ya kevin lama te3mel kol 7aga
+    Bullet* newBullet = new Bullet(Game*, spawn);  // no pointer for now but it should be Game* so add it ya kevin lama te3mel kol 7aga
     bullets.push_back(newBullet);
 }
