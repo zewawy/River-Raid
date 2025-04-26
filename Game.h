@@ -6,6 +6,7 @@
 #include "Jet.h"
 #include "Helicopter.h"
 #include "Bullet.h"
+#include "plane.h"
 
 class Game
 {
@@ -16,6 +17,8 @@ private:
 	std::vector<Jet*> jets;
 	std::vector<Helicopter*> helicopters;
 	std::vector<Bullet*> bullet;
+        Plane* plane;
+
 public:
 	Game();
 	~Game();
