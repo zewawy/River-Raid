@@ -5,6 +5,8 @@
 #include"jet.h"
 #include"Helicopter.h"
 #include "plane.h"
+#include "Background.h"
+#include "StatusBar.h"
 
 Game::Game()
 {
@@ -15,7 +17,8 @@ Game::Game()
 	createToolbar();
 
 	//3 - create and draw the backgroundPlayingArea
-
+	bg = new Background(pWind);
+	bg->draw();
 
 	//4- Create the Plane
 	plane = new Plane(400, 600, 10);  // coordinates are an example we need to change according to the window size ya kevin
@@ -28,6 +31,8 @@ Game::Game()
 
 	//7- Create and clear the status bar
 	clearStatusBar();
+	status = new StatusBar(pWind);
+	status->draw();
 
 	// Add a new fuel object at position (100, 200)
 	fuelDepots.push_back(new FuelDepot(this, { 600, 200 }));
@@ -145,6 +150,12 @@ void Game::go() const
 
 	} while (!isExit);
 
+	while (true) {
+		bg->scrollDown(5);         // Scroll the background
+		clearStatusBar();          // Clear status bar area
+		status->draw();            // Draw the status bar
+		Sleep(30);
+	}
 }
 
 void Game::drawAll()const {
