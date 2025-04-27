@@ -1,8 +1,9 @@
-#include "plane.h"
+#include "Plane.h"
 #include "CMUgraphicsLib\CMUgraphics.h"
 #include "CMUgraphicsLib\auxil.h"
 
-Plane::Plane(int startX, int startY, int speed) {
+Plane::Plane(Game* game, int startX, int startY, int speed) {
+    pGame = game;
     x = startX;
     y = startY;
     p_speed = speed;
@@ -19,10 +20,10 @@ Plane::~Plane()
 
 
 void Plane::move(window & win) {
-    if (GetKeyState(87)) y -= p_speed; // w
-    if (GetKeyState(83)) y += p_speed; // s
-    if (GetKeyState(65)) x -= p_speed; // a
-    if (GetKeyState(68)) x += p_speed; // d
+    if (GetKeyState(87) & 0x8000) y -= p_speed; // w
+    if (GetKeyState(83) & 0x8000) y += p_speed; // s
+    if (GetKeyState(65) & 0x8000) x -= p_speed; // a
+    if (GetKeyState(68) & 0x8000) x += p_speed; // d
 
     if (GetKeyState(VK_SPACE) & 0x8000) {
         fireBullet();
@@ -65,6 +66,6 @@ void Plane::fireBullet() {
     spawn.x = x + 40; // center
     spawn.y = y;      // top of plane
 
-    Bullet* newBullet = new Bullet(Game*, spawn);  // no pointer for now but it should be Game* so add it ya kevin lama te3mel kol 7aga
+    Bullet* newBullet = new Bullet(pGame, spawn);  // no pointer for now but it should be Game* so add it ya kevin lama te3mel kol 7aga
     bullets.push_back(newBullet);
 }
