@@ -4,11 +4,12 @@
 #include "Bullet.h" 
 #include "Drawable.h"
 #include <vector>
-#include "Game.h"
+
+class Game;
 
 class Plane {
 public:
-    Plane(int startX, int startY, int speed);
+    Plane(Game* game, int startX, int startY, int speed);
     ~Plane(); // delete the bullets
 
     void move(window& win);  // move and draw the plane
@@ -17,7 +18,9 @@ public:
     void fireBullet(); // fire them bullets
 
 private:
+    Game* pGame;
     int x, y;
     int p_speed;
     std::vector<Bullet*> bullets; // store bullets
 };
+
