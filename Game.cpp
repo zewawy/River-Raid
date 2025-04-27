@@ -4,7 +4,7 @@
 #include"Bullet.h"
 #include"jet.h"
 #include"Helicopter.h"
-#include "plane.h"
+#include "Plane.h"
 #include "Background.h"
 #include "StatusBar.h"
 
@@ -21,7 +21,7 @@ Game::Game()
 	bg->draw();
 
 	//4- Create the Plane
-	plane = new Plane(400, 600, 10);  // coordinates are an example we need to change according to the window size ya kevin
+	plane = new Plane(this, config.windWidth / 2, config.windHeight - 250, 10);  // coordinates are an example we need to change according to the window size ya kevin
 
 	//5- Create the Bullet
 	//TODO: Add code to create and draw the Bullet
