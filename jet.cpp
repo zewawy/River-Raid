@@ -1,13 +1,26 @@
 #include "Jet.h"
 #include "Game.h" 
+#include "GameConfig.h"
+#include <iostream>
+ 
+Jet::Jet(Game* pGame, point ref, int spd)
+    : GameObject(pGame, ref, 60, 30, LIGHTBLUE, DARKSLATEGRAY),
+    speed(spd), direction(10) {
+}
 
-Jet::Jet(Game* pGame, point ref)
-    : GameObject(pGame, ref, 90, 60, LIGHTBLUE, BLACK) {
-}  
 
+void Jet::move() {
+    RefPoint.x += direction * speed;
+
+    // boundary between x = 400 and x = 800
+    if (RefPoint.x <= 400 || RefPoint.x + width >= 800) {
+        direction *= -1; // reverse direction
+    }
+}
 void Jet::draw() const
 {
     window* w = pGame->getWind();
+
 
     int x = RefPoint.x;
     int y = RefPoint.y;
