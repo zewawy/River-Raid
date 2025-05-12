@@ -2,11 +2,17 @@
 #include "CMUgraphicsLib\CMUgraphics.h"
 #include "CMUgraphicsLib\auxil.h"
 
-Plane::Plane(Game* game, int startX, int startY, int speed) {
-    pGame = game;
-    x = startX;
-    y = startY;
-    p_speed = speed;
+Plane::Plane(Game* game, int startX, int startY, int speed)
+    : pGame(game), x(startX), y(startY), p_speed(speed), fuelLevel(100) 
+{}
+
+void Plane::consumeFuel() {
+    if (fuelLevel > 0)
+        fuelLevel--;
+}
+
+int Plane::getFuelLevel() const {
+    return fuelLevel;
 }
 
 Plane::~Plane()
