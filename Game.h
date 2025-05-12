@@ -10,8 +10,7 @@
 #include "Background.h"
 #include "StatusBar.h"
 
-class Game
-{
+class Game {
 private:
 	window* pWind;	//Pointer to the CMU graphics window
 	Toolbar* gameToolbar;
@@ -19,9 +18,15 @@ private:
 	std::vector<Jet*> jets;
 	std::vector<Helicopter*> helicopters;
 	std::vector<Bullet*> bullet;
-        Plane* plane;
+
+	Plane* pPlane;
+	Plane* plane;
 	Background* bg;
 	StatusBar* status;
+
+
+
+
 
 public:
 	Game();
@@ -38,10 +43,14 @@ public:
 
 	void printMessage(string msg) const;	//Print a message on Status bar
 
-	void go() const;
+	void go();
+
+	void updateAll();
 
 	window* getWind() const;		//returns a pointer to the graphics window
 
 	void drawAll() const;
+
+
 };
 
