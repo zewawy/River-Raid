@@ -17,8 +17,8 @@ public:
 
     void fireBullet(); // fire them bullets
 
-    void consumeFuel();      
-    int getFuelLevel() const; 
+    void consumeFuel();      //Fuel decreases when the jet is flying
+    int getFuelLevel() const; //Level of fuel
 private:
     Game* pGame;
     int x, y;
