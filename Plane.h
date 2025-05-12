@@ -17,10 +17,16 @@ public:
 
     void fireBullet(); // fire them bullets
 
+    void consumeFuel();      
+    int getFuelLevel() const; 
 private:
     Game* pGame;
     int x, y;
+    int fuelLevel; 
     int p_speed;
     std::vector<Bullet*> bullets; // store bullets
 };
+
+
+   
 
